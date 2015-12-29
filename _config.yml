@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: One Man Army
 subtitle:
 description:
-author: John Doe
+author: S1LV3R
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://blog.jamesxia4.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -40,13 +40,42 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
 default_category: uncategorized
 category_map:
 tag_map:
+
+#Archives
+## 2: Enable pagination
+
+## 1: Disable pagination
+
+## 0: Fully Disable
+
+archive: 2
+
+category: 2
+
+tag: 2
+
+# Server
+
+## Hexo uses Connect as a server
+
+## You can customize the logger format as defined in
+
+## http://www.senchalabs.org/connect/logger.html
+
+port: 80
+
+server_ip: 0.0.0.0
+
+logger: false
+
+logger_format: dev
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
