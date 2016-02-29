@@ -16,5 +16,5 @@ Hive从零单排-故障修复篇<br/>
    解决方案2:改参数，待定<br/>
    
 3. java.io.IOException: java.lang.reflect.InvocationTargetException
-   在读取日志源时上游依赖还在写，导致冲突
+   在读取日志源时上游的Flume还在写，导致冲突
    解决方案1: hadoop fsck 干掉所有在写的任务，重跑日志解析
