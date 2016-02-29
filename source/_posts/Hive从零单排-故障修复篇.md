@@ -17,4 +17,4 @@ Hive从零单排-故障修复篇<br/>
    
 3. java.io.IOException: java.lang.reflect.InvocationTargetException
    在读取日志源时上游依赖还在写，导致冲突
-   暂时没有解决方案
+   解决方案1: hadoop fsck 干掉所有在写的任务，重跑日志解析
