@@ -15,11 +15,16 @@ Hive从零单排-日常开发篇<br/>
 
 		具体写法如下:
 
-		select  id
-		        ,biztype_id 
-		from    ods_dj_service_record 
-		        lateral view explode(
-				    split(biztype_id_list,',')
-                ) tmpExplode 
-				as biztype_id
-		where   biztype_id <> '';
+		select  id as id
+                ,biztype_id as biztype_id
+                ,coalesce(concat(substr(a.gmt_create,0,4),substr(a.gmt_create,6,2),substr(a.gmt_create,9,2),substr(a.gmt_create,12,2))) as time
+        from(
+                select  *
+                from    ods_dj_service_record
+                where   pt = '${data_desc}'                          #把对pt的限制拉到前面优化性能
+            )           a
+            lateral view explode(
+                        split(a.biztype_id_list,',')
+            )           b
+            as          biztype_id
+        where   biztype_id <> ''                                 #对pt的限制放到上面，具体判断放下面
