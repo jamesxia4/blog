@@ -15,8 +15,11 @@ Hive从零单排-日常开发篇<br/>
 
 		具体写法如下:
 
-		select  id,biztype_id 
-		from 	ods_dj_service_record lateral view 
-				explode(split(biztype_id_list,',')) 
-				tmpExplode as biztype_id 
-		where 	biztype_id <> '';
+		select  id
+		        ,biztype_id 
+		from    ods_dj_service_record 
+		        lateral view explode(
+				    split(biztype_id_list,',')
+                ) tmpExplode 
+				as biztype_id
+		where   biztype_id <> '';
